@@ -2,12 +2,11 @@ import time
 import requests
 import paho.mqtt.client as mqtt
 
-BOT_TOKEN = "8716886232:AAECk-KO3lUeUBNE7WuQldJgC04f316y6aE"
-CHAT_ID = "2037539973"
+BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")
+CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+MQTT_BROKER = os.getenv("MQTT_BROKER", "broker.hivemq.com")
+MQTT_PORT = int(os.getenv("MQTT_PORT", 1883))
 TELEGRAM_API = f"https://api.telegram.org/bot{BOT_TOKEN}"
-
-MQTT_BROKER = "broker.hivemq.com"
-MQTT_PORT = 1883
 
 TOPIC_COMIDA_CMD    = "victo2026/comida/cmd"
 TOPIC_COMIDA_STATUS = "victo2026/comida/status"
